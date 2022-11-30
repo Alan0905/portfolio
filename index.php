@@ -210,7 +210,7 @@ while($row = $c_qry->fetch_assoc()){
 
          <div class="twelve columns collapsed">
 
-            <h1>Proyectos que realice durante mi carrera...</h1>
+            <h1>Proyectos que realice durante mi carreraaaaa</h1>
 
             <!-- portfolio-wrapper -->
             <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
