@@ -1,7 +1,7 @@
 <?php require_once('config.php'); ?>
  <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 <?php require_once('inc/header.php') ?>
   <body>
 
@@ -14,11 +14,11 @@
          <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
         <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
-         <ul id="nav" class="nav">
+         <ul id="nav" class="nav" text-align="center">
             <li class="current"><a class="smoothscroll" href="#home">Inicio</a></li>
             <li><a class="smoothscroll" href="#about">Acerca de mí</a></li>
-           <li><a class="smoothscroll" href="#resume">Resumen</a></li>
-            <li><a class="smoothscroll" href="#portfolio">Proyectos</a></li>
+            <li><a class="smoothscroll" href="#resume">Resumen</a></li>
+            <li><a class="smoothscroll" href="#portfolio">Proyectos y certificaciones</a></li>
          </ul> <!-- end #nav -->
 
       </nav> <!-- end #nav-wrap -->
@@ -61,7 +61,7 @@ while($row = $c_qry->fetch_assoc()){
 
          <div class="three columns">
 
-            <img class="profile-pic"  src="portfolio.png" alt="" />
+            <img class="profile-pic"  src="portfolio.jfif" alt="" />
 
          </div>
 
@@ -144,10 +144,11 @@ while($row = $c_qry->fetch_assoc()){
 
       <!-- Work
       ----------------------------------------------- -->
+
       <div class="row work">
 
          <div class="three columns header-col">
-            <h1><span>Trabajos</span></h1>
+            <h1><span>Experiencia</span></h1>
          </div>
 
          <div class="nine columns main-col">
@@ -272,32 +273,35 @@ while($row = $c_qry->fetch_assoc()){
 
       </div> <!-- row End -->
 
+      <h1>Contactame</h1>
+    
+   <body class="bodyform">
+   <section class="form-contact">
+         <span class="spanform">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+         </span>
+
+      <form method="post" action="phpmailer.php" enctype="multipart/form-data" class="formulariocontacto">
+         <label for="nombres">Nombres</label>
+         <input class="inputform" type="text" name="nombre" id="nombre">
+
+         <label for="nombres" class="labelform">Apellido</label>
+         <input class="inputform" type="text" name="apellido" id="apellido">
+
+         <label for="correo" class="labelform">Email</label>
+         <input class="inputform" type="text" name="email" id="email">
+
+         <label for="mensaje" class="labelform">Mensaje</label>
+         <textarea class="textareaform" name="mensaje" id="mensaje" rows="6" cols="80"></textarea>
+         <input type="submit" value="Enviar">
+
+
+      </form>
+   </section>
+   </body>
       
 
-      <div class="container">
-         <BR>
-        <h1 class="text-center">CONTACTAME!</h1>
-        <hr>
-        <form action="enviar.php" method="post">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" id="nombre" required>
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="correo" placeholder="correo@example.com" required>
-              </div>
-              <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
-              </div>
-              <div class="d-grid gap-2 col-10 mx-auto">
-              <button type="submit" class="btn btn-outline-success ">Enviar</button>
-            </div>
-        </form>
-        
-
-    </div>
+   
 
 
 
@@ -305,17 +309,7 @@ while($row = $c_qry->fetch_assoc()){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 
-   </section> <!-- Portfolio Section End-->
-
-
-
-
-   <!-- Testimonials Section
-   ================================================== -->
-  
-
-  
-      <!-- /.content-wrapper -->
+   </section> 
       <?php require_once('inc/footer.php') ?>
   </body>
 </html>
