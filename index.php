@@ -3,6 +3,8 @@
 <html lang="en" class="" style="height: auto;">
 
 <?php require_once('inc/header.php') ?>
+<link rel="stylesheet" href="button.css" />
+    <link rel="stylesheet" href="estilos.css" />
   <body>
 
    <!-- Header
@@ -17,7 +19,7 @@
          <ul id="nav" class="nav" text-align="center">
             <li class="current"><a class="smoothscroll" href="#home">Inicio</a></li>
             <li><a class="smoothscroll" href="#about">Acerca de mí</a></li>
-            <li><a class="smoothscroll" href="#resume">Resumen</a></li>
+            <li><a class="smoothscroll" href="#resume">Habilidades</a></li>
             <li><a class="smoothscroll" href="#portfolio">Proyectos y certificaciones</a></li>
          </ul> <!-- end #nav -->
 
@@ -38,8 +40,9 @@ while($row = $c_qry->fetch_assoc()){
       <div class="row banner">
          <div class="banner-text">
             <h1 class="responsive-headline">Hola! Soy <?php echo isset($user) ? ucwords($user['firstname'].' '.$user['lastname']) : ""; ?>.</h1>
-            <h3>Soy un programador con un perfil JR, con muchísimas ganas de aprender lo nuevo en tecnología y software. Scrollea para conocerme mejor!</h3>
+            <h3>Soy un programador BackEnd, con muchísimas ganas de aprender lo nuevo en tecnología y software. Scrollea para conocerme mejor!</h3>
             <hr />
+            
             <ul class="social">
                <li><a target="_blank" href="<?php echo $contact['linkin'] ?>"><i class="fa fa-linkedin"></i></a></li>
             </ul>
@@ -83,7 +86,9 @@ while($row = $c_qry->fetch_assoc()){
                   <p class="address">
                <span><?php echo $contact['address'] ?></span><br>
                <span><?php echo $contact['mobile'] ?></span><br>
-                     <span><?php echo $contact['email'] ?></span>
+                     <span><?php echo $contact['email'] ?></span>         
+                     <br>
+                     <a href="CV- Negrette Alan.pdf" target="_blank" class="aportfolio">Ver Curriculum Vitae</a>
              </p>
 
                </div>
@@ -105,105 +110,44 @@ while($row = $c_qry->fetch_assoc()){
 
    <!-- Resume Section
    ================================================== -->
-   <section id="resume">
+<section id="resume">
+   <div class="row">
 
-      <!-- Education
-      ----------------------------------------------- -->
-      <div class="row education">
+      <h1 class="h1contacto">Habilidades</h1>
 
-         <div class="three columns header-col">
-            <h1><span>Educacion</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-          <?php 
-          $e_qry = $conn->query("SELECT * FROM education order by year desc, month desc");
-          while($row = $e_qry->fetch_assoc()):
-          ?>
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3><?php echo $row['school'] ?></h3>
-                  <p class="info"><?php echo $row['degree'] ?> <span>&bull;</span> <em class="date"><?php echo $row['month'].' '.$row['year'] ?></em></p>
-
-                  <p>
-                  <?php echo stripslashes(html_entity_decode($row['description'])) ?>
-                  </p>
-
+      <section class="skills section" id="skills">
+         <div class="skills__container h-grid">
+            <div data-aos="fade-down">
+               <div data-aos="fade-down" class="skills__data">
+                  <div class="skills__names" >
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/php.png" alt="php" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/mysql.png" alt="mysql" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/laravel.png" alt="laravel" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/html-5.png" alt="html" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/css-3.png" alt="css" /></a>
+                  </div>
+                  <br>
+                  <div class="skills__names tools">
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/javascript.png" alt="javasript" /></a>       
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/python.png" alt="python" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/firebase.png" alt="firebase" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/sql-server.png" alt="sqlserver" /></a>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="skills__names tools">
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/git.png" alt="git" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/icons8-github.png" alt="github" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/icons8-trello.png" alt="trello" /></a>
+                     <a href="#" class="skills__name"><img class="imgportfolio" src="./assets/icon/gitlab.png" alt="gitlab" /></a>
+                  </div>
                </div>
-
-            </div> <!-- item end -->
-          <?php endwhile; ?>
-           
-
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Education -->
-
-
-      <!-- Work
-      ----------------------------------------------- -->
-
-      <div class="row work">
-
-         <div class="three columns header-col">
-            <h1><span>Experiencia</span></h1>
+            </div>
          </div>
-
-         <div class="nine columns main-col">
-          <?php 
-          $w_qry = $conn->query("SELECT * FROM work ");
-          while($row = $w_qry->fetch_assoc()):
-          ?>
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3><?php echo $row['company'] ?></h3>
-                  <p class="info"><?php echo $row['position'] ?> <span>&bull;</span> <em class="date"><?php echo str_replace("_"," ",$row['started']) ?> - <?php echo str_replace("_"," ",$row['ended']) ?></em></p>
-
-                  
-                  <p><?php echo stripslashes(html_entity_decode($row['description'])) ?></p>
-
-               </div>
-
-            </div> <!-- item end -->
-          <?php endwhile; ?>
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Work -->
-
-
-      <!-- Skills
-      ----------------------------------------------- -->
-<div class="row skill">
-
-         <div class="three columns header-col">
-            <h1><span>Habilidades</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-
-        <div class="bars">
-
-           <ul class="skills">
-             <li><span class="bar-expand photoshop"></span><em>PHP</em></li>
-                  <li><span class="bar-expand illustrator"></span><em>JavaScript</em></li>
-            <li><span class="bar-expand wordpress"></span><em>Python</em></li>
-            <li><span class="bar-expand css"></span><em>CSS</em></li>
-            <li><span class="bar-expand html5"></span><em>HTML5</em></li>
-                  <li><span class="bar-expand jquery"></span><em>MySql</em></li>
-          </ul>
-
-        </div>
-
-      </div> 
-
-      </div> 
-   </section>
-
+      </section>
+   </div>
+</section>
+   
    <!-- Portfolio Section
    ================================================== -->
    <section id="portfolio">
@@ -212,7 +156,7 @@ while($row = $c_qry->fetch_assoc()){
 
          <div class="twelve columns collapsed">
 
-            <h1>Proyectos que realice durante mi carrera</h1>
+            <h1 class="h1contacto">Proyectos que realice durante mi carrera</h1>
 
             <!-- portfolio-wrapper -->
             <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
@@ -272,35 +216,43 @@ while($row = $c_qry->fetch_assoc()){
 
 
       </div> <!-- row End -->
-
-      <h1>Contactame</h1>
-    
-   <body class="bodyform">
-   <section class="form-contact">
-         <span class="spanform">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-         </span>
-
-      <form method="post" action="phpmailer.php" enctype="multipart/form-data" class="formulariocontacto">
-         <label for="nombres">Nombres</label>
-         <input class="inputform" type="text" name="nombre" id="nombre">
-
-         <label for="nombres" class="labelform">Apellido</label>
-         <input class="inputform" type="text" name="apellido" id="apellido">
-
-         <label for="correo" class="labelform">Email</label>
-         <input class="inputform" type="text" name="email" id="email">
-
-         <label for="mensaje" class="labelform">Mensaje</label>
-         <textarea class="textareaform" name="mensaje" id="mensaje" rows="6" cols="80"></textarea>
-         <input type="submit" value="Enviar">
-
-
-      </form>
-   </section>
-   </body>
       
 
+<section id="contactame">
+   <div class="row">
+      <body class="bodycontactoo">
+      <h1 class="h1contacto">Contactame</h1>
+      <main class="maincontacto">
+        <form method="post" action="phpmailer.php" enctype="multipart/form-data" class="formcontactoo">
+            <div class="divcontacto">
+                <span class="spancontacto">Tu nombre</span>
+                <input required class="inputcontactoo" type="text" name="nombre" autocapitalize="words" autocomplete="off" />
+            </div>
+              </br>
+            <div class="divcontacto">
+                <span class="spancontacto">Tu apellido</span>
+                <input required class="inputcontactoo" type="text" name="apellido" autocapitalize="words" autocomplete="off" />
+            </div>
+            
+            </br>
+
+            <div class="divcontacto">
+                <span class="spancontacto">Tu email</span>
+                <input  required class="inputcontactoo" type="email" name="email" autocomplete="off" />
+            </div>
+            <div class='large'>
+                <span class="spancontacto">Mensaje</span>
+                <textarea required class="textareacontacto" name="mensaje" rows="6" cols="80"></textarea>
+            </div>
+            <div class='large'>
+                <button class='buttoncontacto' type="submit">Enviar mensaje</button>
+            </div>
+        </form>
+    </main>
+</body>
+</div>
+
+</section>
    
 
 

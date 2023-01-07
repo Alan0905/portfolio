@@ -18,6 +18,9 @@
    <link rel="stylesheet" href="<?php echo base_url ?>profile_asset/css/default.css">
   <link rel="stylesheet" href="<?php echo base_url ?>profile_asset/css/layout.css">
   <link rel="stylesheet" href="<?php echo base_url ?>profile_asset/css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url ?>profile_asset/css/estilos.css">
+  <link rel="stylesheet" href="<?php echo base_url ?>profile_asset/css/button.css">
+
   
    <link rel="stylesheet" href="<?php echo base_url ?>profile_asset/css/media-queries.css">
    <link rel="stylesheet" href="<?php echo base_url ?>profile_asset/css/magnific-popup.css">
